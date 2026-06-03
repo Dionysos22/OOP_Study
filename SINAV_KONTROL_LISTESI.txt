@@ -1,0 +1,53 @@
+OOP Sınav Kontrol Listesi (Vize + Final — Birleşik)
+====================================================
+
+VİZE — Bölüm 1–6
+----------------
+[ ] ch01 — hardware/software, JVM, bytecode, OOP kavramları (Chapter1_Notes)
+[ ] ch01 — javac / java, args (TestDrive)
+[ ] ch02 — println, printf, Scanner, operatörler (Bolum2_Temeller, Welcome, Addition)
+[ ] ch03 — class/object, private, get/set, constructor (Bolum3_Siniflar, Account*)
+[ ] ch03 — primitive vs reference (PrimitiveVsReferenceDemo)
+[ ] ch04 — if/else, nested if, while, sentinel (Bolum4_Kontrol1, ClassAverage*)
+[ ] ch04 — ++/--, bileşik atama (IncrementDecrementDemo)
+[ ] ch05 — for, do-while, switch, break/continue (Bolum5_Kontrol2, SwitchTest)
+[ ] ch05 — && || ! mantıksal operatörler (LogicalOperatorsDemo, AutoPolicy)
+[ ] ch06 — static, imza, recursion, promotion/cast (Bolum6_Metotlar)
+[ ] ch06 — enum, scope, overload (ScopeDemo, MethodOverloadDemo)
+[ ] vize_ornekler/Book.java — ctor overload, static bookCount, applyDiscount
+
+FİNAL — Bölüm 7–12 + Lab
+------------------------
+[ ] ch07 — dizi length/indeks, for-each, ArrayList, Arrays.sort
+[ ] ch08 — encapsulation, ctor overload, this(...), static sayaç
+[ ] ch09 — extends, super, @Override, protected
+[ ] ch10 — üst tip ref, dynamic binding, abstract, interface
+[ ] ch10 — instanceof / pattern matching
+[ ] ch11 — try-catch-finally, throws, checked vs unchecked
+[ ] ch11 — özel exception sınıfı
+[ ] ch12 — Factory Method, interface vs base class, Open/Closed
+[ ] Lab 6 konuları — ch09/ch10 + ornekler/Final_SekilOrnegi (kalıtım, polimorfizm)
+[ ] Lab 7 konuları — ch10/ch11/ch12 + ornekler/Final_OdemeOzeti (interface, exception, factory)
+[ ] ornekler/Final_SekilOrnegi — sıfırdan yazma
+[ ] ornekler/Final_OdemeOzeti — kuralları ezberden kodlama
+
+TEKRAR (finalde vize konuları da çıkar)
+---------------------------------------
+[ ] ch03 + ch08 birlikte (sınıf/nesne)
+[ ] ch06 metotlar (Lab 6 static RNG, overload mantığı)
+[ ] ch05 switch — PaymentFactory switch ile bağlantı
+
+Sık hatalar
+-----------
+- super() alt sınıf ctor'da ilk satır
+- checked exception: catch veya throws
+- RNG.nextInt(11) → 0..10
+- Paketsiz BolumX: java -cp ch04 Bolum4_Kontrol1 (java -cp . değil)
+- instanceof Wizard w → Java 16+
+
+Hızlı test
+----------
+git clone ile indirdiysen: cd REPO_ADI/OOP_Study
+./derle.sh
+java -cp . ch06.Bolum6_Metotlar
+java -cp . ornekler.Final_OdemeOzeti
