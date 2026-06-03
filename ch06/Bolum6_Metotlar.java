@@ -10,7 +10,7 @@ import java.util.Arrays;
  * kavramlarla birlikte görmek (static, imza, yığın/özyineleme, yükseltme/dönüşüm,
  * paketler, SecureRandom, enum, kapsam, overload).
  *
- * Çalıştırma (proje kökü OOP_Midterm_Study iken — classpath kök dizindir):
+ * Çalıştırma (OOP_Study kökünden — classpath bu dizindir):
  *   javac ch06/Bolum6_Metotlar.java
  *   java -cp . ch06.Bolum6_Metotlar
  */

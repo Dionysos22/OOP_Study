@@ -47,7 +47,6 @@ Sık hatalar
 
 Hızlı test
 ----------
-git clone ile indirdiysen: cd REPO_ADI/OOP_Study
 ./derle.sh
 java -cp . ch06.Bolum6_Metotlar
 java -cp . ornekler.Final_OdemeOzeti

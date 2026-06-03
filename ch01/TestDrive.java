@@ -5,7 +5,7 @@ package ch01;
  *
  * Amaç: Java programını derle-çalıştır döngüsünü pratik etmek.
  *
- * Terminalde (OOP_Midterm_Study içinde):
+ * Terminalde (OOP_Study kökünden):
  *   javac ch01/TestDrive.java
  *   java -cp . ch01.TestDrive
  *

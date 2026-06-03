@@ -9,7 +9,7 @@ import java.util.Arrays;
  * Finalde sık: dizi bildirimi, indeks, length, enhanced for, dizi argümanı,
  * ArrayList (dinamik boyut), Arrays yardımcı sınıfı.
  *
- * Çalıştırma (OOP_Final_Study kökünden):
+ * Çalıştırma (OOP_Study kökünden):
  *   javac ch07/Bolum7_Diziler.java
  *   java -cp . ch07.Bolum7_Diziler
  */
