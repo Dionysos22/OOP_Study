@@ -1,107 +1,51 @@
 # Java OOP Study — Vize & Final (Bölüm 1–12)
 
-COM2044 ve benzeri **Nesneye Yönelik Programlama** dersleri için **Türkçe açıklamalı**, **çalıştırılabilir** Java örnekleri.
+COM2044 için **Türkçe yorumlu** Java örnekleri (Deitel *Java How to Program*, Bölüm 1–12).
 
-Kitap paralelliği: *Java How to Program (Early Objects)* — Deitel, Bölüm 1–12.
+**JDK 11+** gerekir.
 
----
-
-## Kimler için?
-
-- Vize öncesi: Bölüm **1–6** + `vize_ornekler/Book.java`
-- Final öncesi: Bölüm **7–12** + `ornekler/` (Lab 6–7 konuları bu bölümlerde özetlenir)
-
-**Gereksinim:** JDK **11+**
-
----
-
-## Hızlı başlangıç
+## İndir (clone)
 
 ```bash
-git clone https://github.com/KULLANICI_ADIN/REPO_ADI.git
-cd REPO_ADI
+git clone https://github.com/Dionysos22/java-oop-study.git
+cd java-oop-study
+```
+
+ZIP indirmek için: [github.com/Dionysos22/java-oop-study](https://github.com/Dionysos22/java-oop-study) → **Code** → **Download ZIP**
+
+## Başlangıç
+
+```bash
 chmod +x derle.sh && ./derle.sh
 java -cp . ch06.Bolum6_Metotlar
 ```
 
-Bu repoyu zaten indirdiysen, klasörde:
+## Klasörler
+
+| Klasör | İçerik |
+|--------|--------|
+| `ch01`–`ch06` | Vize |
+| `ch07`–`ch12` | Final |
+| `ornekler/` | Sınav tarzı örnekler |
+| `vize_ornekler/Book.java` | Vize sorusu |
+
+`SINAV_KONTROL_LISTESI.txt` — konu listesi  
+`INDEKS.txt` — tüm dosyalar
+
+## Çalıştırma
 
 ```bash
-chmod +x derle.sh && ./derle.sh
-java -cp . ornekler.Final_OdemeOzeti
-```
-
----
-
-## Klasör yapısı
-
-```
-ch01/ … ch06/     Vize konuları
-ch07/ … ch12/     Final konuları
-ornekler/         Sınav tarzı mini örnekler
-vize_ornekler/    Book.java (vize)
-SINAV_KONTROL_LISTESI.txt
-INDEKS.txt
-derle.sh
-```
-
----
-
-## Bölüm özeti
-
-| Bölüm | Konu |
-|-------|------|
-| 1–2 | Java giriş, girdi/çıktı, operatörler |
-| 3–4 | Sınıf/nesne, if/while |
-| 5–6 | for, switch, metotlar, static, enum |
-| 7–8 | Dizi, ArrayList, encapsulation |
-| 9–10 | Kalıtım, polimorfizm, interface |
-| 11–12 | Exception, Factory Method |
-
-Detaylı dosya listesi: [`INDEKS.txt`](INDEKS.txt)  
-Çalışma listesi: [`SINAV_KONTROL_LISTESI.txt`](SINAV_KONTROL_LISTESI.txt)
-
----
-
-## Çalıştırma notları
-
-**Paketli** (`package ch06;`):
-
-```bash
-java -cp . ch06.Bolum6_Metotlar
-```
-
-**Paketsiz** (`Bolum4_Kontrol1`):
-
-```bash
-java -cp ch04 Bolum4_Kontrol1
-```
-
-**Book (vize):**
-
-```bash
+java -cp . ch10.Bolum10_Polimorfizm          # paketli
+java -cp ch04 Bolum4_Kontrol1                # paketsiz
 cd vize_ornekler && javac Book.java && java Book
 ```
 
----
-
-## Önerilen sıra
+## Çalışma sırası
 
 1. `SINAV_KONTROL_LISTESI.txt`  
-2. Vize: `ch03`, `ch06`, `vize_ornekler/Book.java`  
-3. Final: `ch07` → `ch12`  
-4. `ornekler/` — oku, kapat, sıfırdan yazmayı dene  
-
-`ch03` ve `ch08` ikisi de sınıf/nesne anlatır; ikisini de oku.
-
----
+2. Vize: `ch03`, `ch06`, `Book.java`  
+3. Final: `ch07` → `ch12`, sonra `ornekler/`
 
 ## Lisans
 
-MIT — eğitim ve paylaşım için. Üniversite ödev kurallarına uygun kullan.
-
----
-
-## Repoyu GitHub’a yüklemek (senin için)
-
-Adım adım terminal rehberi: [`GITHUB_YUKLEME.md`](GITHUB_YUKLEME.md)
+[MIT](LICENSE) — İndirip kullanabilir, düzenleyebilir, paylaşabilirsin; kaynak belirtmen yeterli. Ticari veya ödev amaçlı kullanım serbest; üniversite intihal kurallarına sen uyarsın.
