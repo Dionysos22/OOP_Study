@@ -76,7 +76,7 @@ public class Bolum9_Kalitim {
 
     private static void lab6Baglantisi() {
         System.out.println("[Lab 6] GameCharacter → Warrior / Wizard");
-        System.out.println("  lab_calisma/lab6_yorumlu/GameCharacter.java");
+        System.out.println("  Pratik: ornekler/Final_SekilOrnegi.java, lab/LAB_SINAV_NOTLARI.txt");
         System.out.println("  attack() üstte; alt sınıflar super.attack() sonra kaynak (strength/mana) düşürür.");
         System.out.println();
     }

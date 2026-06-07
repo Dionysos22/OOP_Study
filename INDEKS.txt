@@ -2,74 +2,79 @@ OOP_Study — Dosya indeksi
 =========================
 
 ch01/
-  Chapter1_Notes.java     Bölüm 1 kavram özeti (main ile bölüm bölüm çıktı)
+  Chapter1_Notes.java       Bölüm 1 kavram özeti
   TestDrive.java          javac/java, command-line args
 
 ch02/
-  Bolum2_Temeller.java    Konu toplama (paketsiz → java -cp ch02 Bolum2_Temeller)
+  Bolum2_Temeller.java    Konu toplama (java -cp ch02 Bolum2_Temeller)
   Welcome1/2/3.java       İlk program, yorum, println
   Addition.java           Scanner ile toplama
   Comparison.java         Karşılaştırma operatörleri
 
 ch03/
-  Bolum3_Siniflar.java    Sınıf, nesne, get/set, ctor, GUI notu (paketsiz)
-  Account.java            Kitap Account örneği (birleşik)
-  AccountTest.java        Nesne oluşturma testi
-  AccountConstructorTest.java
-  AccountBalanceTest.java
+  Bolum3_Siniflar.java    Sınıf, nesne, get/set, ctor
+  Account.java            Kitap Account örneği
+  AccountTest.java / AccountConstructorTest.java / AccountBalanceTest.java
   PrimitiveVsReferenceDemo.java
 
 ch04/
-  Bolum4_Kontrol1.java    if/while, sentinel, ++/-- (paketsiz)
-  WhileCounter.java
-  ClassAverage.java
-  ClassAverageSentinel.java
+  Bolum4_Kontrol1.java    if/while, sentinel
+  WhileCounter.java / ClassAverage.java / ClassAverageSentinel.java
   IncrementDecrementDemo.java
 
 ch05/
-  Bolum5_Kontrol2.java    for, do-while, switch, mantık (paketsiz)
-  ForCounter.java
-  DoWhileTest.java
-  SwitchTest.java
-  ContinueTest.java
-  LogicalOperatorsDemo.java
+  Bolum5_Kontrol2.java    for, do-while, switch, mantık
+  ForCounter.java / DoWhileTest.java / SwitchTest.java
+  ContinueTest.java / LogicalOperatorsDemo.java
   AutoPolicy.java / AutoPolicyTest.java
 
 ch06/
-  Bolum6_Metotlar.java    static, recursion, enum, overload özeti
-  ScopeDemo.java
-  MethodOverloadDemo.java
-  MaximumFinder.java
-  RandomIntegers.java
+  Bolum6_Metotlar.java    static, recursion, enum, overload
+  ScopeDemo.java / MethodOverloadDemo.java
+  MaximumFinder.java / RandomIntegers.java
 
 ch07/
   Bolum7_Diziler.java     Dizi, ArrayList, Arrays
 
 ch08/
-  Bolum8_SiniflarVeNesneler.java   Encapsulation, this, static (ch03 derinleştirme)
+  Bolum8_SiniflarVeNesneler.java   Encapsulation, this, static, private ctor
 
 ch09/
-  Bolum9_Kalitim.java     extends, super, override
+  Bolum9_Kalitim.java     extends, super, override, protected
 
 ch10/
-  Bolum10_Polimorfizm.java   abstract, interface, dynamic binding
+  Bolum10_Polimorfizm.java   abstract, interface, dynamic binding, instanceof
 
 ch11/
   Bolum11_Istisnalar.java    try-catch, throws, custom exception
 
 ch12/
-  Bolum12_TasarimDesenleri.java   Factory Method (Lab 7)
+  Bolum12_TasarimDesenleri.java   Factory Method, private ctor, Open/Closed
 
-ornekler/
-  Final_SekilOrnegi.java
-  Final_OdemeOzeti.java
+ch13/
+  Bolum13_Lab8Universite.java     Lab 8 final özeti (çalıştırılabilir)
+
+vize_tekrar/
+  BolumVize_OutputTekrar.java     Output soruları (ch02–06)
 
 vize_ornekler/
-  Book.java
-  README.txt
+  Book.java               Vize: ctor overload, static, indirim
 
-Dış bağlantılar
----------------
-  ../lab_calisma/lab6_yorumlu/
-  ../lab_calisma/lab7_yorumlu/
-  ../24-25_midterm_çözüm/   (orijinal vize dosyaları)
+ornekler/
+  Final_SekilOrnegi.java      Lab 6 tarzı (kalıtım + polimorfizm)
+  Final_OdemeOzeti.java       Lab 7 tarzı (interface + factory)
+  Final_UniversiteOzeti.java  Lab 8 tarzı (abstract + Comparable)
+
+uml/
+  UML_Calisma.txt         UML alıştırmaları (Book, Lab 6/7/8)
+
+lab/
+  LAB_SINAV_NOTLARI.txt   Lab kuralları ve hiyerarşiler
+
+Kök dosyalar
+------------
+  README.md
+  CALISMA_SIRASI.txt
+  SINAV_KONTROL_LISTESI.txt
+  derle.sh
+  LICENSE

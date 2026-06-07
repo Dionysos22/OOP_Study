@@ -1,0 +1,82 @@
+UML Çalışma — Vize & Final
+==========================
+
+Semboller
+---------
+  - alan : Tip       private
+  + metot()          public
+  # alan             protected
+  {static}           static
+  {abstract}         abstract sınıf/metot
+
+Kalıtım (extends):     Alt ──▷ Ust       düz ok, boş üçgen
+Interface (implements): Sinif ─ ─ ▷ IF   kesik ok
+
+
+1) VİZE — Book (vize_ornekler/Book.java)
+----------------------------------------
+
+┌─────────────────────────────────────────┐
+│                  Book                   │
+├─────────────────────────────────────────┤
+│ - title: String                         │
+│ - author: String                        │
+│ - price: double                         │
+│ - bookCount: int {static}               │
+├─────────────────────────────────────────┤
+│ + Book()                                │
+│ + Book(title: String, author: String)   │
+│ + Book(title, author, price: double)    │
+│ + displayBook(): void                   │
+│ + getPrice(): double                    │
+│ + applyDiscount(percentage: double)     │
+│ + getBookCount(): int {static}          │
+└─────────────────────────────────────────┘
+
+Alıştırma: Book.java ↔ diyagram eşleştir. bookCount neden static?
+
+
+2) LAB 6 — RPG (lab/LAB_SINAV_NOTLARI.txt)
+------------------------------------------
+
+        GameCharacter {abstract}
+           ├── Warrior
+           └── Wizard
+
+  + attack(...): AttackReport
+  AttackReport = inner class
+
+
+3) LAB 7 — Ödeme (ornekler/Final_OdemeOzeti.java)
+-------------------------------------------------
+
+<<interface>> PaymentProcessor
+  + processPayment(amount: double): void
+
+CreditCardProcessor ─ ─ ▷ PaymentProcessor
+PayPalProcessor     ─ ─ ▷ PaymentProcessor
+CryptoProcessor     ─ ─ ▷ PaymentProcessor
+
+PaymentFactory:
+  - PaymentFactory()              ← PRIVATE
+  + createProcessor(type): PaymentProcessor {static}
+
+
+4) LAB 8 — Üniversite (ch13/Bolum13_Lab8Universite.java)
+---------------------------------------------------------
+
+        Person {abstract}
+           ├── Student ─ ─ ▷ Comparable<Student>
+           └── AcademicStaff ─ ─ ▷ Payable
+                 ├── Professor
+                 └── ResearchAssistant
+
+UniversityRepository<T>
+InvalidGPAException extends Exception
+
+
+5) KISA SORULAR
+---------------
+extends vs implements ok farkı?
+abstract sınıftan nesne oluşturulur mu? → Hayır
+private constructor ne işe yarar? → static factory; new Factory() yasak

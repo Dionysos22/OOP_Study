@@ -1,0 +1,80 @@
+Lab Sınav Notları (Lab 6–8)
+============================
+
+Bu dosya lab PDF'lerindeki sınavda çıkabilecek kuralları özetler.
+Çalıştırılabilir kod: ornekler/ + ch13/
+
+
+LAB 6 — RPG Düello
+------------------
+Konular: extends, @Override, super, inner class, instanceof, polimorfizm
+
+Hiyerarşi:
+  GameCharacter (abstract veya base)
+    ├── Warrior
+    └── Wizard
+
+Önemli:
+  - attack() → AttackReport (inner class) döner
+  - hasLost() → health <= 0
+  - DuelRPG döngüsü: instanceof ile Wizard pattern matching (Java 16+)
+  - RNG.nextInt(11) → 0..10 (üst sınır dahil değil)
+
+Pratik: ornekler/Final_SekilOrnegi.java (kalıtım + polimorfizm iskeleti)
+UML: uml/UML_Calisma.txt → Lab 6
+
+
+LAB 7 — Ödeme Sistemi
+---------------------
+Konular: interface, checked exception, Factory Method, private constructor
+
+PaymentProcessor (interface):
+  void processPayment(double amount) throws PaymentException
+
+Kurallar (sınavda ezber):
+  credit  → amount <= 5000
+  paypal  → amount >= 10
+  crypto  → amount % 5 == 0
+
+PaymentFactory:
+  private PaymentFactory() { }   ← dışarıdan new yapılamaz
+  static PaymentProcessor createProcessor(String type)
+
+PaymentException extends Exception (checked)
+SmartPaymentSystem: try-catch (PaymentException | IllegalArgumentException)
+
+Pratik: ornekler/Final_OdemeOzeti.java
+Teori: ch10, ch11, ch12
+UML: uml/UML_Calisma.txt → Lab 7
+
+
+LAB 8 — Üniversite Yönetimi
+---------------------------
+Konular: abstract + interface birlikte, Comparable, generic, FileWriter
+
+Hiyerarşi:
+  Person (abstract)
+    ├── Student (Comparable<Student>)
+    └── AcademicStaff (implements Payable)
+          ├── Professor
+          └── ResearchAssistant
+
+Kurallar:
+  GPA: 0–4 arası, değilse InvalidGPAException (checked)
+  Professor maaş: baseSalary + publishedPapers * 1000
+  RA maaş: baseSalary + projects * 500
+  compareTo: GPA azalan (yüksek önce)
+  Collections.sort(students)
+
+Main akışı:
+  1. ArrayList<Person> oluştur, üye ekle (try-catch)
+  2. p.displayInfo() → polimorfizm
+  3. instanceof AcademicStaff → calculateSalary()
+  4. instanceof Student → ayrı listeye topla, sort
+  5. FileWriter → students.txt
+  6. Geçersiz GPA demosu
+
+UniversityRepository<T>: generic add/remove/displayAll
+
+Pratik: ch13/Bolum13_Lab8Universite.java, ornekler/Final_UniversiteOzeti.java
+UML: uml/UML_Calisma.txt → Lab 8

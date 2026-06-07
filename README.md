@@ -1,51 +1,54 @@
-# Java OOP Study — Vize & Final (Bölüm 1–12)
+# Java OOP Study — COM2044 (Vize + Final)
 
-COM2044 için **Türkçe yorumlu** Java örnekleri (Deitel *Java How to Program*, Bölüm 1–12).
+Deitel *Java How to Program* Bölüm 1–12 + Lab 6–8 sınav konuları.  
+Türkçe yorumlu, çalıştırılabilir Java örnekleri.
 
 **JDK 11+** gerekir.
 
-## İndir (clone)
+## İndir
 
 ```bash
 git clone https://github.com/Dionysos22/java-oop-study.git
 cd java-oop-study
-```
-
-ZIP indirmek için: [github.com/Dionysos22/java-oop-study](https://github.com/Dionysos22/java-oop-study) → **Code** → **Download ZIP**
-
-## Başlangıç
-
-```bash
 chmod +x derle.sh && ./derle.sh
-java -cp . ch06.Bolum6_Metotlar
 ```
 
-## Klasörler
+## Nereden başlamalı?
+
+1. `CALISMA_SIRASI.txt` — adım adım plan  
+2. `SINAV_KONTROL_LISTESI.txt` — konu listesi (kutuları işaretle)
+
+## Klasör yapısı
 
 | Klasör | İçerik |
 |--------|--------|
-| `ch01`–`ch06` | Vize |
-| `ch07`–`ch12` | Final |
-| `ornekler/` | Sınav tarzı örnekler |
-| `vize_ornekler/Book.java` | Vize sorusu |
-
-`SINAV_KONTROL_LISTESI.txt` — konu listesi  
-`INDEKS.txt` — tüm dosyalar
+| `ch01`–`ch06` | Vize (temel Java, sınıf, kontrol, metot) |
+| `ch07`–`ch12` | Final kitap konuları |
+| `ch13` | Lab 8 özeti (abstract, Comparable, generic, dosya I/O) |
+| `vize_tekrar` | Output soruları tekrarı |
+| `vize_ornekler` | Vize sorusu `Book.java` |
+| `ornekler` | Sınav tarzı iskelet kod (Lab 6/7/8) |
+| `uml` | UML alıştırmaları |
+| `lab` | Lab 6–8 sınav notları (kurallar, hiyerarşi) |
 
 ## Çalıştırma
 
 ```bash
-java -cp . ch10.Bolum10_Polimorfizm          # paketli
-java -cp ch04 Bolum4_Kontrol1                # paketsiz
+# Paketli bölüm
+java -cp . ch10.Bolum10_Polimorfizm
+
+# Paketsiz bölüm özeti
+java -cp ch04 Bolum4_Kontrol1
+
+# Vize / final pratik
+java -cp . vize_tekrar.BolumVize_OutputTekrar
+java -cp . ornekler.Final_OdemeOzeti
+java -cp . ch13.Bolum13_Lab8Universite
 cd vize_ornekler && javac Book.java && java Book
 ```
 
-## Çalışma sırası
-
-1. `SINAV_KONTROL_LISTESI.txt`  
-2. Vize: `ch03`, `ch06`, `Book.java`  
-3. Final: `ch07` → `ch12`, sonra `ornekler/`
+Tüm dosya listesi: `INDEKS.txt`
 
 ## Lisans
 
-[MIT](LICENSE) — İndirip kullanabilir, düzenleyebilir, paylaşabilirsin; kaynak belirtmen yeterli. Ticari veya ödev amaçlı kullanım serbest; üniversite intihal kurallarına sen uyarsın.
+[MIT](LICENSE)

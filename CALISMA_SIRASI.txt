@@ -1,0 +1,37 @@
+OOP_Study — Çalışma Sırası
+==========================
+
+  cd OOP_Study
+  chmod +x derle.sh && ./derle.sh
+
+Önerilen sıra
+-------------
+
+1. SINAV_KONTROL_LISTESI.txt — kutuları işaretle
+
+2. Vize temeli
+   ch01 → ch02 → ch03 → ch04 → ch05 → ch06
+   vize_tekrar/BolumVize_OutputTekrar.java
+   vize_ornekler/Book.java
+
+3. Final teori
+   ch07 → ch08 → ch09 → ch10 → ch11 → ch12 → ch13
+
+4. UML
+   uml/UML_Calisma.txt (Book + Lab 6/7/8)
+
+5. Lab pratiği
+   lab/LAB_SINAV_NOTLARI.txt (kurallar)
+   ornekler/Final_SekilOrnegi.java
+   ornekler/Final_OdemeOzeti.java
+   ornekler/Final_UniversiteOzeti.java
+
+6. Sıfırdan yazma
+   ornekler/ dosyalarını kapat, aynı yapıyı kendin yaz
+
+Hızlı komutlar
+--------------
+java -cp . ch06.Bolum6_Metotlar
+java -cp . vize_tekrar.BolumVize_OutputTekrar
+java -cp . ch13.Bolum13_Lab8Universite
+cd vize_ornekler && javac Book.java && java Book

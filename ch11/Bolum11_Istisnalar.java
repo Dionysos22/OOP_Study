@@ -94,7 +94,8 @@ public class Bolum11_Istisnalar {
         System.out.println("  PaymentException extends Exception (checked)");
         System.out.println("  CreditCard: amount > 5000 → throw PaymentException");
         System.out.println("  SmartPaymentSystem: catch (PaymentException | IllegalArgumentException)");
-        System.out.println("  reflection: lab_calisma/lab7_yorumlu/reflection_questions.txt");
+        System.out.println("  Lab kuralları: lab/LAB_SINAV_NOTLARI.txt");
+        System.out.println("  Kod: ornekler/Final_OdemeOzeti.java");
         System.out.println();
     }
 

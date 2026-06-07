@@ -20,6 +20,7 @@ public class Bolum8_SiniflarVeNesneler {
         constructorOverload();
         thisVeZincir();
         staticOrnek();
+        privateConstructorOrnek();
         vizeBookBaglantisi();
         ozet();
     }
@@ -77,16 +78,32 @@ public class Bolum8_SiniflarVeNesneler {
         System.out.println();
     }
 
+    private static void privateConstructorOrnek() {
+        System.out.println("[8.6] Private constructor (finalde önemli)");
+        /*
+         * private ClassName() { } → dışarıdan new ClassName() YAPILAMAZ.
+         * Nesne oluşturma static factory metoduyla yapılır.
+         * Lab 7: PaymentFactory.createProcessor(type)
+         * UML: constructor satırında "-" (private)
+         */
+        IdGenerator g1 = IdGenerator.next();
+        IdGenerator g2 = IdGenerator.next();
+        System.out.println("  IdGenerator: " + g1 + ", " + g2);
+        System.out.println("  new IdGenerator() derleme hatası — sadece next() kullan.");
+        System.out.println("  Örnek: ornekler/Final_OdemeOzeti.java → PaymentFactory");
+        System.out.println();
+    }
+
     private static void vizeBookBaglantisi() {
         System.out.println("[Vize bağlantısı] Book.java");
         System.out.println("  vize_ornekler/Book.java → overload ctor, static bookCount, applyDiscount");
-        System.out.println("  ch03/Bolum3_Siniflar.java → Account ctor + get/set tekrarı");
+        System.out.println("  UML: uml/UML_Calisma.txt → Book");
         System.out.println();
     }
 
     private static void ozet() {
         System.out.println("=== Bölüm 8 özeti ===");
-        System.out.println("class/object | private/public | ctor overload | this | static");
+        System.out.println("encapsulation | ctor overload | this | static | private ctor + factory");
     }
 
     /** Encapsulation örneği — mini banka hesabı. */
@@ -146,6 +163,26 @@ public class Bolum8_SiniflarVeNesneler {
         @Override
         public String toString() {
             return "Product{name='" + name + "', price=" + price + ", category='" + category + "'}";
+        }
+    }
+
+    static class IdGenerator {
+        private static int seq = 1000;
+
+        private IdGenerator() {
+        }
+
+        static IdGenerator next() {
+            IdGenerator g = new IdGenerator();
+            g.id = ++seq;
+            return g;
+        }
+
+        private int id;
+
+        @Override
+        public String toString() {
+            return String.valueOf(id);
         }
     }
 }
