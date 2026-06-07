@@ -1,13 +1,9 @@
 package ch11;
 
 /**
- * Bölüm 11: Exception Handling: A Deeper Look
- *
- * Lab 7: PaymentException (checked), try-catch in SmartPaymentSystem,
- * NumberFormatException in readAmount.
+ * Bölüm 11: Exception Handling (Slayt 11)
  *
  * Çalıştırma:
- *   javac ch11/Bolum11_Istisnalar.java
  *   java -cp . ch11.Bolum11_Istisnalar
  */
 public class Bolum11_Istisnalar {
@@ -18,7 +14,6 @@ public class Bolum11_Istisnalar {
         throwsOrnek();
         checkedVsUnchecked();
         customException();
-        lab7Baglantisi();
         ozet();
     }
 
@@ -48,7 +43,6 @@ public class Bolum11_Istisnalar {
         System.out.println("[11.5] throws");
         /*
          * Metot checked exception fırlatıyorsa throws bildirir veya try-catch kullanır.
-         * processPayment throws PaymentException → çağıran try-catch yazar.
          */
         try {
             validateAge(15);
@@ -63,8 +57,7 @@ public class Bolum11_Istisnalar {
         /*
          * Unchecked (RuntimeException altı): NumberFormatException, IllegalArgumentException,
          *   ArrayIndexOutOfBoundsException — derleyici zorunlu catch istemez.
-         * Checked (Exception altı, Runtime değil): IOException, PaymentException —
-         *   ya catch ya throws.
+         * Checked (Exception altı, Runtime değil): IOException — ya catch ya throws.
          */
         System.out.println("  Unchecked örnek: Integer.parseInt(\"abc\")");
         try {
@@ -78,24 +71,13 @@ public class Bolum11_Istisnalar {
     private static void customException() {
         System.out.println("[11.7] Özel exception sınıfı");
         /*
-         * class PaymentException extends Exception { ... }
-         * Anlamlı mesaj + isteğe bağlı cause.
+         * class XxxException extends Exception { ... }
          */
         try {
             withdraw(1000, 500);
         } catch (InsufficientFundsException e) {
             System.out.println("  " + e.getMessage());
         }
-        System.out.println();
-    }
-
-    private static void lab7Baglantisi() {
-        System.out.println("[Lab 7]");
-        System.out.println("  PaymentException extends Exception (checked)");
-        System.out.println("  CreditCard: amount > 5000 → throw PaymentException");
-        System.out.println("  SmartPaymentSystem: catch (PaymentException | IllegalArgumentException)");
-        System.out.println("  Lab kuralları: lab/LAB_SINAV_NOTLARI.txt");
-        System.out.println("  Kod: ornekler/Final_OdemeOzeti.java");
         System.out.println();
     }
 

@@ -1,57 +1,43 @@
-OOP Sınav Kontrol Listesi (Vize + Final)
-=========================================
+OOP Sınav Kontrol Listesi (Slayt öncelikli)
+============================================
 
-Çalışma sırası: CALISMA_SIRASI.txt
+Slayt: ../Slides/NN.pdf  ·  Harita: SLAYT_HARITASI.txt
 
-VİZE — Bölüm 1–6
+VİZE — Slayt 1–6
 ----------------
-[ ] ch01 — JVM, bytecode, OOP kavramları (Chapter1_Notes, TestDrive)
-[ ] ch02 — println, Scanner, operatörler (Bolum2_Temeller, Welcome*, Addition)
-[ ] ch03 — class/object, private, get/set, constructor (Bolum3_Siniflar, Account*)
-[ ] ch03 — primitive vs reference (PrimitiveVsReferenceDemo)
-[ ] ch04 — if/else, while, sentinel, ++/-- (Bolum4_Kontrol1, ClassAverage*)
-[ ] ch05 — for, do-while, switch, break/continue, mantık (Bolum5_Kontrol2)
-[ ] ch06 — static, recursion, scope, overload, enum (Bolum6_Metotlar)
-[ ] vize_tekrar — output tahmin (if, döngü, switch, static)
-[ ] vize_ornekler/Book.java — ctor overload, static bookCount, applyDiscount
-[ ] uml/UML_Calisma.txt — Book diyagramı
+[ ] ch01 — JVM, OOP kavramları
+[ ] ch02 — println, Scanner, operatörler
+[ ] ch03 — class/object, get/set, constructor
+[ ] ch04 — if/else, while, sentinel
+[ ] ch05 — for, switch, mantık operatörleri
+[ ] ch06 — static, recursion, overload, enum
+[ ] vize_tekrar — output tahmin
+[ ] vize_ornekler/Book.java + uml/UML_Calisma.txt
 
-FİNAL — Bölüm 7–13
-------------------
-[ ] ch07 — dizi, for-each, ArrayList, Arrays
-[ ] ch08 — encapsulation, ctor overload, this, static, private ctor + factory
-[ ] ch09 — extends, super, @Override, protected
-[ ] ch10 — polimorfizm, abstract, interface, instanceof
-[ ] ch11 — try-catch, throws, checked/unchecked, custom exception
-[ ] ch12 — Factory Method, private ctor, Open/Closed
-[ ] ch13 — Lab 8: abstract+Payable, Comparable, generic, FileWriter
-[ ] uml/UML_Calisma.txt — Lab 6, 7, 8 diyagramları
+FİNAL — Slayt 7–11, 16, 17, 20
+-------------------------------
+[ ] ch07 — dizi, ArrayList (Slayt 7)
+[ ] ch08 — encapsulation, ctor, this, static, private ctor (Slayt 8)
+[ ] ch09 — extends, super, @Override, protected (Slayt 9)
+[ ] ch10 — polimorfizm, abstract, interface, instanceof (Slayt 10)
+[ ] ch11 — try-catch, throws, checked/unchecked (Slayt 11)
+[ ] ch16 — List, Set, Map, Iterator, Collections.sort (Slayt 16)
+[ ] ch17 — lambda, stream (Slayt 17)
+[ ] ch20 — generic class/method (Slayt 20)
 
-LAB PRATİĞİ (lab/LAB_SINAV_NOTLARI.txt)
----------------------------------------
-[ ] Lab 6 — kalıtım, inner class, instanceof → ornekler/Final_SekilOrnegi
-[ ] Lab 7 — interface, exception, factory → ornekler/Final_OdemeOzeti
-[ ] Lab 8 — üniversite yapısı → ch13 + ornekler/Final_UniversiteOzeti
-
-SIFIRDAN YAZMA
---------------
-[ ] Final_SekilOrnegi — Shape/Circle/Rectangle
-[ ] Final_OdemeOzeti — 3 ödeme kuralı + PaymentFactory
-[ ] Final_UniversiteOzeti — Person ağacı + sort + instanceof
+ATLANAN SLAYTLAR
+----------------
+[ ] 12–13 JavaFX, 14–15, 18–19, 21+ — sınav odağı değil
 
 Sık hatalar
 -----------
-- super() alt sınıf ctor'da ilk satır
-- checked exception: catch veya throws
+- super() ilk satır | checked exception catch/throws
+- private ctor: new Factory() yasak
+- abstract: new X() yazılamaz
 - RNG.nextInt(11) → 0..10
-- private ctor: new Factory() derleme hatası
-- abstract: new Person() yazılamaz
-- compareTo azalan GPA: Double.compare(other.gpa, this.gpa)
 - Paketsiz: java -cp ch04 Bolum4_Kontrol1
 
 Hızlı test
 ----------
 ./derle.sh
-java -cp . vize_tekrar.BolumVize_OutputTekrar
-java -cp . ch13.Bolum13_Lab8Universite
-java -cp . ornekler.Final_OdemeOzeti
+java -cp . ch16.Bolum16_GenericCollections

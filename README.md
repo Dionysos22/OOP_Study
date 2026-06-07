@@ -1,53 +1,29 @@
-# Java OOP Study — COM2044 (Vize + Final)
+# Java OOP Study — COM2044
 
-Deitel *Java How to Program* Bölüm 1–12 + Lab 6–8 sınav konuları.  
-Türkçe yorumlu, çalıştırılabilir Java örnekleri.
+**Birincil kaynak: hoca slaytları** (`Slides/NN.pdf`).  
+Kitap yalnızca slaytta net olmayan yerler için.
 
-**JDK 11+** gerekir.
-
-## İndir
+**JDK 11+**
 
 ```bash
-git clone https://github.com/Dionysos22/java-oop-study.git
-cd java-oop-study
+git clone https://github.com/Dionysos22/OOP_Midterm_Study.git
+cd OOP_Midterm_Study
 chmod +x derle.sh && ./derle.sh
 ```
 
-## Nereden başlamalı?
+## Klasörler
 
-1. `CALISMA_SIRASI.txt` — adım adım plan  
-2. `SINAV_KONTROL_LISTESI.txt` — konu listesi (kutuları işaretle)
+| Klasör | Slayt |
+|--------|-------|
+| `ch01`–`ch06` | Vize 1–6 |
+| `ch07`–`ch11` | Final 7–11 |
+| `ch16`, `ch17`, `ch20` | Final 16, 17, 20 |
+| `vize_tekrar`, `vize_ornekler` | Output + Book |
+| `uml` | UML alıştırması |
 
-## Klasör yapısı
+`SLAYT_HARITASI.txt` · `CALISMA_SIRASI.txt` · `SINAV_KONTROL_LISTESI.txt`
 
-| Klasör | İçerik |
-|--------|--------|
-| `ch01`–`ch06` | Vize (temel Java, sınıf, kontrol, metot) |
-| `ch07`–`ch12` | Final kitap konuları |
-| `ch13` | Lab 8 özeti (abstract, Comparable, generic, dosya I/O) |
-| `vize_tekrar` | Output soruları tekrarı |
-| `vize_ornekler` | Vize sorusu `Book.java` |
-| `ornekler` | Sınav tarzı iskelet kod (Lab 6/7/8) |
-| `uml` | UML alıştırmaları |
-| `lab` | Lab 6–8 sınav notları (kurallar, hiyerarşi) |
-
-## Çalıştırma
-
-```bash
-# Paketli bölüm
-java -cp . ch10.Bolum10_Polimorfizm
-
-# Paketsiz bölüm özeti
-java -cp ch04 Bolum4_Kontrol1
-
-# Vize / final pratik
-java -cp . vize_tekrar.BolumVize_OutputTekrar
-java -cp . ornekler.Final_OdemeOzeti
-java -cp . ch13.Bolum13_Lab8Universite
-cd vize_ornekler && javac Book.java && java Book
-```
-
-Tüm dosya listesi: `INDEKS.txt`
+Lab kodları bu repoda yok.
 
 ## Lisans
 

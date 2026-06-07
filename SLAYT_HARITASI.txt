@@ -1,0 +1,35 @@
+COM2044 — Slayt Haritası (BİRİNCİL KAYNAK)
+============================================
+
+Öncelik: Slides/NN.pdf → OOP_Study/chNN/ → Deitel kitap (ikincil)
+
+Slaytlar repoda yok. Yerel: ../Slides/
+
+
+MÜFREDAT
+--------
+
+  Slayt    Konu                              OOP_Study
+  ───────────────────────────────────────────────────
+  1        Introduction                      ch01
+  2–6      Vize (temel Java)                 ch02–ch06
+  7        Arrays and ArrayLists             ch07
+  8        Classes: A Deeper Look            ch08
+  9        Inheritance                       ch09
+  10       Polymorphism and Interfaces       ch10
+  11       Exception Handling                ch11
+  —        12–13 JavaFX                      ATLA
+  —        14–15                             ATLA
+  16       Generic Collections               ch16
+  17       Lambdas and Streams               ch17
+  —        18–19                             ATLA
+  20       Generic Classes and Methods       ch20
+
+
+ÇALIŞMA SIRASI (final)
+----------------------
+  ch07 → ch08 → ch09 → ch10 → ch11 → ch16 → ch17 → ch20
+
+Ek: vize_tekrar, vize_ornekler/Book.java, uml/UML_Calisma.txt
+
+Lab kodları bu repoda yok — ayrı lab_calisma/ klasöründe.

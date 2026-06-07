@@ -1,13 +1,9 @@
 package ch10;
 
 /**
- * Bölüm 10: Polymorphism and Interfaces
- *
- * Lab 6: GameCharacter referansıyla Warrior/Wizard
- * Lab 7: PaymentProcessor referansıyla somut processor'lar
+ * Bölüm 10: Polymorphism and Interfaces (Slayt 10)
  *
  * Çalıştırma:
- *   javac ch10/Bolum10_Polimorfizm.java
  *   java -cp . ch10.Bolum10_Polimorfizm
  */
 public class Bolum10_Polimorfizm {
@@ -19,7 +15,6 @@ public class Bolum10_Polimorfizm {
         abstractClassOrnek();
         interfaceOrnek();
         instanceofOrnek();
-        labBaglantisi();
         ozet();
     }
 
@@ -44,8 +39,6 @@ public class Bolum10_Polimorfizm {
         System.out.println("[10.2] Dynamic binding (çalışma anında bağlama)");
         /*
          * e.payDescription() çağrısı → nesnenin GERÇEK tipindeki metot çalışır.
-         * Lab 7: PaymentProcessor p = factory...; p.processPayment() → hangi sınıf
-         * ise o sınıfın processPayment'ı çalışır.
          */
         Employee[] staff = {
                 new SalariedEmployee("Zeynep", 60000),
@@ -82,7 +75,6 @@ public class Bolum10_Polimorfizm {
         /*
          * interface: sözleşme; implements eden sınıf tüm metotları yazmalı.
          * Çoklu interface mümkün; çoklu extends yok (sınıf için).
-         * Lab 7: implements PaymentProcessor
          */
         Notifier email = new EmailNotifier();
         Notifier sms = new SmsNotifier();
@@ -99,21 +91,12 @@ public class Bolum10_Polimorfizm {
     private static void instanceofOrnek() {
         System.out.println("[10.5] instanceof ve pattern matching");
         /*
-         * Lab 6 DuelRPG:
-         *   if (c instanceof Wizard w) return w.getMana() == 0;
          * Tür kontrolü + güvenli downcast (Java 16+ pattern).
          */
         Employee e = new HourlyEmployee("Deniz", 40, 100);
         if (e instanceof HourlyEmployee h) {
             System.out.println("  Saatlik çalışan: " + h.getHours() + " saat");
         }
-        System.out.println();
-    }
-
-    private static void labBaglantisi() {
-        System.out.println("[Lab bağlantısı]");
-        System.out.println("  Lab 6: GameCharacter hedef/saldıran — override attack");
-        System.out.println("  Lab 7: PaymentProcessor processor — interface polimorfizm");
         System.out.println();
     }
 

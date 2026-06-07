@@ -70,7 +70,7 @@ public class Bolum8_SiniflarVeNesneler {
         System.out.println("[8.5] static alan ve metot");
         /*
          * static: sınıfa ait; nesne sayısından bağımsız paylaşılır.
-         * Book.bookCount, PaymentFactory.createProcessor (static metot)
+         * Book.bookCount, static factory metotları
          */
         Product a = new Product("A", 1);
         Product b = new Product("B", 2);
@@ -82,15 +82,13 @@ public class Bolum8_SiniflarVeNesneler {
         System.out.println("[8.6] Private constructor (finalde önemli)");
         /*
          * private ClassName() { } → dışarıdan new ClassName() YAPILAMAZ.
-         * Nesne oluşturma static factory metoduyla yapılır.
-         * Lab 7: PaymentFactory.createProcessor(type)
+         * Nesne oluşturma static factory metoduyla yapılır (Slayt 8 / sınav ipucu).
          * UML: constructor satırında "-" (private)
          */
         IdGenerator g1 = IdGenerator.next();
         IdGenerator g2 = IdGenerator.next();
         System.out.println("  IdGenerator: " + g1 + ", " + g2);
         System.out.println("  new IdGenerator() derleme hatası — sadece next() kullan.");
-        System.out.println("  Örnek: ornekler/Final_OdemeOzeti.java → PaymentFactory");
         System.out.println();
     }
 

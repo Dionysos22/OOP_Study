@@ -1,4 +1,4 @@
-UML Çalışma — Vize & Final
+UML Çalışma — Slayt odaklı
 ==========================
 
 Semboller
@@ -7,14 +7,14 @@ Semboller
   + metot()          public
   # alan             protected
   {static}           static
-  {abstract}         abstract sınıf/metot
+  {abstract}         abstract
 
-Kalıtım (extends):     Alt ──▷ Ust       düz ok, boş üçgen
-Interface (implements): Sinif ─ ─ ▷ IF   kesik ok
+Kalıtım (extends):     Alt ──▷ Ust
+Interface (implements): Sinif ─ ─ ▷ IF
 
 
-1) VİZE — Book (vize_ornekler/Book.java)
-----------------------------------------
+1) VİZE — Book (vize_ornekler/Book.java, Slayt 3/8)
+---------------------------------------------------
 
 ┌─────────────────────────────────────────┐
 │                  Book                   │
@@ -33,50 +33,30 @@ Interface (implements): Sinif ─ ─ ▷ IF   kesik ok
 │ + getBookCount(): int {static}          │
 └─────────────────────────────────────────┘
 
-Alıştırma: Book.java ↔ diyagram eşleştir. bookCount neden static?
+
+2) FİNAL — Polimorfizm (Slayt 10, ch10 örneği)
+----------------------------------------------
+
+        Shape {abstract}
+           ├── Circle
+           └── Rectangle
+
+  {abstract} + area(): double
 
 
-2) LAB 6 — RPG (lab/LAB_SINAV_NOTLARI.txt)
-------------------------------------------
+3) FİNAL — Generic + Collections (Slayt 16/20)
+----------------------------------------------
 
-        GameCharacter {abstract}
-           ├── Warrior
-           └── Wizard
+  Box<T>
+    - value: T
+    + get(): T
 
-  + attack(...): AttackReport
-  AttackReport = inner class
-
-
-3) LAB 7 — Ödeme (ornekler/Final_OdemeOzeti.java)
--------------------------------------------------
-
-<<interface>> PaymentProcessor
-  + processPayment(amount: double): void
-
-CreditCardProcessor ─ ─ ▷ PaymentProcessor
-PayPalProcessor     ─ ─ ▷ PaymentProcessor
-CryptoProcessor     ─ ─ ▷ PaymentProcessor
-
-PaymentFactory:
-  - PaymentFactory()              ← PRIVATE
-  + createProcessor(type): PaymentProcessor {static}
+  Student implements Comparable<Student>
+    + compareTo(other): int
 
 
-4) LAB 8 — Üniversite (ch13/Bolum13_Lab8Universite.java)
----------------------------------------------------------
-
-        Person {abstract}
-           ├── Student ─ ─ ▷ Comparable<Student>
-           └── AcademicStaff ─ ─ ▷ Payable
-                 ├── Professor
-                 └── ResearchAssistant
-
-UniversityRepository<T>
-InvalidGPAException extends Exception
-
-
-5) KISA SORULAR
+4) KISA SORULAR
 ---------------
 extends vs implements ok farkı?
 abstract sınıftan nesne oluşturulur mu? → Hayır
-private constructor ne işe yarar? → static factory; new Factory() yasak
+private constructor ne işe yarar? → static factory; new X() yasak

@@ -1,12 +1,9 @@
 package ch09;
 
 /**
- * Bölüm 9: Inheritance
- *
- * Lab 6: GameCharacter ← Warrior, Wizard
+ * Bölüm 9: Inheritance (Slayt 9)
  *
  * Çalıştırma:
- *   javac ch09/Bolum9_Kalitim.java
  *   java -cp . ch09.Bolum9_Kalitim
  */
 public class Bolum9_Kalitim {
@@ -17,7 +14,6 @@ public class Bolum9_Kalitim {
         superVeConstructor();
         overrideOrnek();
         protectedNotu();
-        lab6Baglantisi();
         ozet();
     }
 
@@ -41,7 +37,6 @@ public class Bolum9_Kalitim {
         System.out.println("[9.4] super ve constructor zinciri");
         /*
          * Alt sınıf constructor'ı ilk satırda super(...) çağırmalı (varsayılan hariç).
-         * Warrior: super(name, health) → GameCharacter alanları dolar.
          */
         Cat c = new Cat("Minnak", 2, true);
         System.out.println("  " + c.describe() + ", indoor=" + c.isIndoor());
@@ -68,16 +63,8 @@ public class Bolum9_Kalitim {
         System.out.println("[9.6] protected");
         /*
          * protected: aynı pakette ve alt sınıflardan erişilebilir.
-         * Lab 6: GameCharacter.RNG protected static final
          */
         System.out.println("  Alt sınıf, üst sınıfın protected üyelerine erişir (aynı paket kurallarına dikkat).");
-        System.out.println();
-    }
-
-    private static void lab6Baglantisi() {
-        System.out.println("[Lab 6] GameCharacter → Warrior / Wizard");
-        System.out.println("  Pratik: ornekler/Final_SekilOrnegi.java, lab/LAB_SINAV_NOTLARI.txt");
-        System.out.println("  attack() üstte; alt sınıflar super.attack() sonra kaynak (strength/mana) düşürür.");
         System.out.println();
     }
 
