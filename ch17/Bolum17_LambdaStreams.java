@@ -7,14 +7,27 @@ import java.util.function.IntConsumer;
 import java.util.stream.IntStream;
 
 /**
- * Bölüm 17 — Lambdas and Streams (Slides/17.pdf)
+ * Bölüm 17 — Lambdas and Streams (Slayt 17)
  *
- * Slayt 17: functional interface, lambda, stream pipeline.
+ * NE ÖĞRENECEKSİN?
+ * - Functional interface: tek abstract metotlu interface (SAM)
+ * - Lambda: (param) -> ifade  — kısa anonymous metot
+ * - Stream pipeline: kaynak → ara işlemler → terminal işlem
  *
- * Kitap referans: Deitel Ch.17 (slayt yeterli değilse)
+ * Stream pipeline örneği:
+ *   IntStream.of(5,2,8,1)
+ *       .filter(n -> n % 2 == 0)   // ara: çiftleri seç
+ *       .sorted()                   // ara: sırala
+ *       .forEach(n -> print(n));    // terminal: yazdır
  *
- * Çalıştırma:
- *   java -cp . ch17.Bolum17_LambdaStreams
+ * Sık terminal işlemler: forEach, reduce, count, sum
+ * Sık ara işlemler: filter, map, sorted
+ *
+ * NOT: Stream kendisi depolamaz; bir kez tüketilir, tekrar kullanılamaz.
+ *
+ * Slayt: Slides/17.pdf  ·  Sonraki: ch20
+ *
+ * Çalıştırma: java -cp . ch17.Bolum17_LambdaStreams
  */
 public class Bolum17_LambdaStreams {
 
@@ -30,14 +43,26 @@ public class Bolum17_LambdaStreams {
     }
 
     private static void intro() {
-        System.out.println("=== Bölüm 17: Lambdas and Streams (Slayt 17) ===\n");
+        System.out.println("=== Bölüm 17: Lambdas and Streams (Slayt 17) ===");
+        System.out.println("Lambda = kısa fonksiyon | Stream = veri boru hattı");
+        System.out.println("filter → map → sorted → forEach / reduce\n");
     }
 
     private static void functionalInterface() {
         System.out.println("[17.1] Functional interface (SAM)");
         /*
-         * Tek abstract metotlu interface → lambda atanabilir.
-         * Slayt: IntConsumer, Predicate, Function, Supplier...
+         * SAM = Single Abstract Method — tam bir abstract metot.
+         *
+         *   interface IntConsumer {
+         *       void accept(int value);   ← tek abstract metot
+         *   }
+         *
+         * Lambda bu interface'i implement eder:
+         *   IntConsumer yazdir = value -> System.out.print(value + " ");
+         *   yazdir.accept(1);  // 1 yazar
+         *
+         * java.util.function paketinde hazır interface'ler:
+         *   Predicate, Function, Consumer, Supplier, IntConsumer...
          */
         IntConsumer yazdir = value -> System.out.print(value + " ");
         System.out.print("  IntConsumer: ");
@@ -50,8 +75,19 @@ public class Bolum17_LambdaStreams {
     private static void lambdaSyntax() {
         System.out.println("[17.2] Lambda sözdizimi");
         /*
-         * (parametreler) -> ifade   veya   (parametreler) -> { blok }
-         * Anonymous method kısayolu; functional interface beklenen yerde kullanılır.
+         * İKİ FORM:
+         *
+         *   (parametreler) -> ifade
+         *   (parametreler) -> { satır1; satır2; return x; }
+         *
+         * Parametre yoksa:
+         *   () -> System.out.println("merhaba")
+         *
+         * Tek parametre, tip yazmadan:
+         *   x -> x * 2
+         *
+         * Lambda nerede kullanılır?
+         *   Functional interface beklenen yerde (forEach, filter, Comparator vb.)
          */
         Runnable merhaba = () -> System.out.println("  Lambda Runnable çalıştı.");
         merhaba.run();
@@ -59,7 +95,18 @@ public class Bolum17_LambdaStreams {
     }
 
     private static void intStreamForEach() {
-        System.out.println("[17.3] IntStream.of + forEach (Slayt Fig. 17.x)");
+        System.out.println("[17.3] IntStream + forEach (terminal)");
+        /*
+         * IntStream.of(dizi) → int değerlerinden stream oluşturur
+         * .forEach(lambda)    → her eleman için lambda çalışır (terminal)
+         *
+         * Klasik for yerine:
+         *   for (int v : values) System.out.print(v);
+         * Stream ile:
+         *   IntStream.of(values).forEach(v -> System.out.print(v));
+         *
+         * Slayt Fig. 17.x: of + forEach zinciri
+         */
         int[] values = { 3, 10, 6 };
         System.out.print("  forEach: ");
         IntStream.of(values).forEach(v -> System.out.printf("%d ", v));
@@ -67,10 +114,16 @@ public class Bolum17_LambdaStreams {
     }
 
     private static void intStreamReduce() {
-        System.out.println("[17.4] reduce — toplam");
+        System.out.println("[17.4] reduce — toplama (terminal)");
         /*
-         * reduce(identity, (x, y) -> x + y)
-         * identity=0, stream 3+10+6 → 19 (slayt adım adım anlatım)
+         * .reduce(başlangıç, (x, y) -> x + y)
+         *
+         * Adım adım (values = {3, 10, 6}, identity = 0):
+         *   x=0,  y=3  → 0+3  = 3
+         *   x=3,  y=10 → 3+10 = 13
+         *   x=13, y=6  → 13+6 = 19
+         *
+         * Sınav output: reduce adımlarını takip et.
          */
         int[] values = { 3, 10, 6 };
         int sum = IntStream.of(values).reduce(0, (x, y) -> x + y);
@@ -79,7 +132,19 @@ public class Bolum17_LambdaStreams {
     }
 
     private static void filterSort() {
-        System.out.println("[17.5] filter + sorted + forEach");
+        System.out.println("[17.5] filter + sorted + forEach (pipeline)");
+        /*
+         * Pipeline = zincirleme metot çağrıları:
+         *
+         *   kaynak
+         *     .filter( koşul )     ← ara işlem: elemanları süzer
+         *     .sorted()           ← ara işlem: sıralar
+         *     .forEach( işlem )   ← terminal: tüketir, stream biter
+         *
+         * n -> n % 2 == 0  → "n çift mi?" Predicate lambda
+         *
+         * Çıktı: 2 6 8 (çiftler, küçükten büyüğe)
+         */
         int[] values = { 5, 2, 8, 1, 6, 3 };
         System.out.print("  çift, sıralı: ");
         IntStream.of(values)
@@ -90,8 +155,17 @@ public class Bolum17_LambdaStreams {
     }
 
     private static void mapOrnek() {
-        System.out.println("[17.6] map — dönüştürme");
+        System.out.println("[17.6] map — dönüştürme (String stream)");
+        /*
+         * .map(x -> dönüşüm)  → her elemanı başka tipe/ değere çevirir
+         *
+         * String::toUpperCase  → method reference (lambda kısayolu)
+         *   s -> s.toUpperCase() ile aynı
+         *
+         * Comparator.naturalOrder() → alfabetik sıralama
+         */
         List<String> names = Arrays.asList("ali", "zeynep", "can");
+        System.out.print("  büyük harf, sıralı: ");
         names.stream()
                 .map(String::toUpperCase)
                 .sorted(Comparator.naturalOrder())
@@ -101,6 +175,6 @@ public class Bolum17_LambdaStreams {
 
     private static void ozet() {
         System.out.println("=== Bölüm 17 özeti ===");
-        System.out.println("functional interface | lambda | stream pipeline | filter map sorted reduce");
+        System.out.println("functional interface | (x)->ifade | filter map sorted | forEach reduce");
     }
 }

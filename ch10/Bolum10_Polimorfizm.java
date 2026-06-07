@@ -1,10 +1,24 @@
 package ch10;
 
 /**
- * Bölüm 10: Polymorphism and Interfaces (Slayt 10)
+ * Bölüm 10 — Polymorphism and Interfaces (Slayt 10)
  *
- * Çalıştırma:
- *   java -cp . ch10.Bolum10_Polimorfizm
+ * NE ÖĞRENECEKSİN?
+ * - Polimorfizm: üst tip referansı, alt tip nesne (Employee e = new SalariedEmployee(...))
+ * - Dynamic binding: hangi metot çalışır → nesnenin GERÇEK tipine göre
+ * - abstract class: new yapılamaz, soyut metot zorunlu override
+ * - interface: sözleşme (implements), çoklu interface mümkün
+ * - instanceof: güvenli tür kontrolü + downcast (Java 16+ pattern: instanceof Tip t)
+ *
+ * abstract vs interface (kısa):
+ *   abstract  → ortak kod + zorunlu metotlar, tek extends
+ *   interface → sadece sözleşme, ortak kod yok (Java 8+ default var ama slayt odak farklı)
+ *
+ * UML: extends ──▷   implements ─ ─ ▷
+ *
+ * Slayt: Slides/10.pdf  ·  Sonraki: ch11
+ *
+ * Çalıştırma: java -cp . ch10.Bolum10_Polimorfizm
  */
 public class Bolum10_Polimorfizm {
 
@@ -19,14 +33,22 @@ public class Bolum10_Polimorfizm {
     }
 
     private static void intro() {
-        System.out.println("=== Bölüm 10: Polimorfizm ve arayüzler ===\n");
+        System.out.println("=== Bölüm 10: Polimorfizm ve arayüzler (Slayt 10) ===");
+        System.out.println("Aynı referans tipi, farklı nesne tipleri — tek döngüde hepsini işle.");
+        System.out.println("abstract | interface | instanceof — finalin omurgası.\n");
     }
 
     private static void ustTipReferans() {
         System.out.println("[10.1] Üst tip referansı");
         /*
-         * Employee e = new SalariedEmployee(...);
-         * Referans tipi Employee, nesne SalariedEmployee → polimorfik kullanım.
+         *   Employee e = new SalariedEmployee("Ayşe", 50000);
+         *
+         * Referans tipi:  Employee     (sol taraf — derleyici bunu bilir)
+         * Nesne tipi:       SalariedEmployee  (sağ taraf — çalışma anında bu)
+         *
+         * e.monthlyPay() çağrısı → SalariedEmployee sürümü çalışır (dynamic binding)
+         *
+         * Sınav output: Employee[] dizisi, döngüde farklı alt sınıflar, toplam maaş
          */
         Employee e1 = new SalariedEmployee("Ayşe", 50000);
         Employee e2 = new HourlyEmployee("Mehmet", 45, 160);
@@ -36,9 +58,16 @@ public class Bolum10_Polimorfizm {
     }
 
     private static void dynamicBinding() {
-        System.out.println("[10.2] Dynamic binding (çalışma anında bağlama)");
+        System.out.println("[10.2] Dynamic binding (geç bağlama)");
         /*
-         * e.payDescription() çağrısı → nesnenin GERÇEK tipindeki metot çalışır.
+         * Derleme anında: e tipi Employee → Employee'de monthlyPay var mı? ✓
+         * Çalışma anında: e'nin gerçek nesnesi HourlyEmployee → onun monthlyPay'i çalışır
+         *
+         * Bu yüzden:
+         *   Employee[] staff = { new SalariedEmployee(...), new HourlyEmployee(...) };
+         *   for (Employee e : staff) e.monthlyPay();  ← her biri kendi hesabını yapar
+         *
+         * Polimorfizmin özü budur — if/else ile tip kontrolüne gerek kalmaz.
          */
         Employee[] staff = {
                 new SalariedEmployee("Zeynep", 60000),
@@ -47,18 +76,26 @@ public class Bolum10_Polimorfizm {
         double total = 0;
         for (Employee e : staff) {
             total += e.monthlyPay();
-            System.out.println("  " + e.getName() + " → " + e.monthlyPay());
+            System.out.println("  " + e.getName() + " → " + e.monthlyPay() + " TL/ay");
         }
         System.out.println("  Toplam aylık ödeme: " + total);
         System.out.println();
     }
 
     private static void abstractClassOrnek() {
-        System.out.println("[10.3] abstract class");
+        System.out.println("[10.3] abstract class (soyut sınıf)");
         /*
-         * abstract sınıf: hem ortak kod hem soyut metot tanımlanabilir.
-         * Soyut metot somut alt sınıfta @Override ile yazılmalı.
-         * new Shape() doğrudan yapılamaz; Circle, Rectangle yapılabilir.
+         *   abstract class Shape {
+         *       public abstract double area();
+         *   }
+         *
+         * new Shape()  → DERLEME HATASI (soyut sınıftan nesne yok)
+         * new Circle(2) → OK
+         *
+         * Alt sınıf abstract metodu @Override ile MUTLAKA implement etmeli.
+         *
+         * UML: Shape {abstract}, area() {abstract}
+         * Sınav: Shape[] = { new Circle(...), new Rectangle(...) }; toplam alan
          */
         Shape[] shapes = {
                 new Circle(2.0),
@@ -71,10 +108,20 @@ public class Bolum10_Polimorfizm {
     }
 
     private static void interfaceOrnek() {
-        System.out.println("[10.4] interface");
+        System.out.println("[10.4] interface (arayüz)");
         /*
-         * interface: sözleşme; implements eden sınıf tüm metotları yazmalı.
-         * Çoklu interface mümkün; çoklu extends yok (sınıf için).
+         *   interface Notifier {
+         *       void notifyUser(String message);
+         *   }
+         *
+         * class EmailNotifier implements Notifier { ... }
+         *
+         * Interface = "şu metodu yazmak ZORUNDASIN" sözleşmesi.
+         * Ortak alan/kod yok (sadece public static final sabitler olabilir).
+         *
+         * Bir sınıf:  extends TekUst  +  implements A, B, C  (çoklu interface)
+         *
+         * Polimorfizm: Notifier n = new EmailNotifier(); n.notifyUser("...");
          */
         Notifier email = new EmailNotifier();
         Notifier sms = new SmsNotifier();
@@ -84,18 +131,31 @@ public class Bolum10_Polimorfizm {
 
     private static void sendAll(Notifier[] notifiers, String message) {
         for (Notifier n : notifiers) {
-            n.notifyUser(message);
+            n.notifyUser(message); // hangi implementasyon ise o çalışır
         }
     }
 
     private static void instanceofOrnek() {
-        System.out.println("[10.5] instanceof ve pattern matching");
+        System.out.println("[10.5] instanceof ve güvenli downcast");
         /*
-         * Tür kontrolü + güvenli downcast (Java 16+ pattern).
+         * Üst tip referansı → alt tip metoduna/alanına ihtiyaç varsa downcast gerekir.
+         *
+         * YANLIŞ (tehlikeli):
+         *   HourlyEmployee h = (HourlyEmployee) e;  // e aslında Salaried ise CRASH
+         *
+         * DOĞRU:
+         *   if (e instanceof HourlyEmployee h) {
+         *       h.getHours();  // Java 16+ pattern — otomatik cast
+         *   }
+         *
+         * Eski stil:
+         *   if (e instanceof HourlyEmployee) {
+         *       HourlyEmployee h = (HourlyEmployee) e;
+         *   }
          */
         Employee e = new HourlyEmployee("Deniz", 40, 100);
         if (e instanceof HourlyEmployee h) {
-            System.out.println("  Saatlik çalışan: " + h.getHours() + " saat");
+            System.out.println("  Saatlik çalışan: " + h.getHours() + " saat/ay");
         }
         System.out.println();
     }
@@ -116,6 +176,7 @@ public class Bolum10_Polimorfizm {
             return name;
         }
 
+        /** Alt sınıflar kendi maaş hesabını yazar. */
         public abstract double monthlyPay();
 
         public String payDescription() {
